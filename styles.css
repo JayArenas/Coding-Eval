@@ -1,0 +1,50 @@
+/* Main Page Styles */
+.header-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.header-text {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+form {
+    padding: 0 20%;
+}
+
+.form-row {
+    padding-bottom: 1%;
+}
+
+.info-input {
+    padding-bottom: 10px;
+}
+
+.hidden-input {
+    display: none;
+}
+
+
+
+.card-container {
+    display: flex; 
+    justify-content: center;
+    padding: 2rem;
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card-column {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+/* Second Page Styles */
+

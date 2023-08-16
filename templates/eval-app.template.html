@@ -1,0 +1,79 @@
+<div class="container-fluid header-container">
+  <div class="row">
+    <h1 class="header-text">AngularJS Evaluation</h1>
+  </div>
+</div>
+
+<form ng-submit="$ctrl.addUser()">
+  <div class="row form-row">
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.newUser.fName"  placeholder="First name" class="form-control" >
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.newUser.lName"  placeholder="Last name" class="form-control" >
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.newUser.dob" placeholder="DOB" class="form-control">
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.newUser.age" placeholder="Age" class="form-control"> 
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.newUser.salary" placeholder="Salary" class="form-control">
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.newUser.avatar" placeholder="Avatar" class="form-control">
+    </div>
+    <div class="col-6 info-input hidden-input">
+      <input type="text" ng-model="$ctrl.newUser.id" class="form-control">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary add-btn">Add User</button>
+</form>
+
+<div class="card-container">
+  <div class=" card-row">
+  <div ng-repeat="user in $ctrl.users" class="col-4 card-column">
+    <div class="card" style="width: 18rem">
+      <img src="{{user.avatar}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{user.fName + " " + user.lName}}</h5>
+        <p class="card-text">{{user.dob}}</p>
+        <p class="card-text">{{user.age}}</p>
+        <p class="card-text">{{user.salary}}</p>
+        <button ng-click="$ctrl.editUser(user)"  class="btn btn-primary">Edit</button>
+        <button ng-click="$ctrl.deleteUser(user)" class="btn btn-danger">Delete</button>
+        <button ng-click="$ctrl.viewUserDetails(user)" class="btn btn-primary"> <a [routerLink]="['/user/:userId', 'user.id']">View</a>View </button>
+      </div>
+    </div> 
+ </div>
+</div>
+</div>
+
+
+<div ng-if="$ctrl.editingUser" >
+  <h2>Edit User</h2>
+  <div class="row form-row">
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.editingUser.fName" placeholder="fName" class="form-control" placeholder="First name">
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.editingUser.lName" placeholder="lName" class="form-control" placeholder="Last name">
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.editingUser.dob" placeholder="dob" class="form-control" placeholder="First name">
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.editingUser.age" placeholder="age" class="form-control" placeholder="Last name">
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.editingUser.salary" placeholder="salary" class="form-control" placeholder="First name">
+    </div>
+    <div class="col-6 info-input">
+      <input type="text" ng-model="$ctrl.editingUser.avatar" placeholder="avatar" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+    <button type="submit" ng-click="$ctrl.updateUser()" class="btn btn-primary">Update</button>
+    <button ng-click="$ctrl.cancelEdit()" class="btn btn-danger">Cancel</button>
+  </form>
+</div>
